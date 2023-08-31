@@ -17,7 +17,7 @@
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "nwtu_orders"
+            "extension-key": "nwtu_strength"
         }
     }
 }
