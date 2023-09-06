@@ -174,7 +174,7 @@
 .right {
     text-align:right!important;
 }
-#user_confirm {
+#user_confirm_strength {
 	float:left;
 	margin:0 10px 0 0;
 }
@@ -465,9 +465,9 @@
 
 	<tr>
 		<td colspan="4">
-			<input type="checkbox" name="Datenschutzbestätigung" id="user_confirm" class="req yellow" />
+			<input type="checkbox" name="Datenschutzbestätigung" id="user_confirm_strength" class="req yellow" />
 			<input type="hidden" name="req[]" value="Datenschutzbestätigung" />
-			<p><label for="user_confirm">Ich stimme zu, dass meine Angaben aus dem Formular zur Beantwortung
+			<p><label for="user_confirm_strength">Ich stimme zu, dass meine Angaben aus dem Formular zur Beantwortung
 meiner Anfrage erhoben und verarbeitet und gespeichert werden.
 <br>
 Hinweis: Sie können Ihre Einwilligung jederzeit für die Zukunft per E-Mail an dsb@nwtu.de widerrufen.
