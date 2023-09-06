@@ -142,7 +142,7 @@
 
             $html .= '
 
-<form style="width:100%" id="meldung" name="meldung" method="post" action="/?id=75">
+<form style="width:100%" id="meldung" name="meldung" method="post" action="' . $_SERVER["REQUEST_URI"] . '">
 <h2>Stärkemeldung Taekwondo ' . $nextYear . ' (Einsendeschluß ' . $deadline_d . '.' . $deadline_m . '.' . $deadline_y . ')</h2>
 
 <style>
