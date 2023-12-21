@@ -2,12 +2,8 @@
 
     namespace WebanUg\NwtuStrength\Controller;
 
-    use Doctrine\DBAL\DBALException;
-    use Doctrine\DBAL\Driver\Exception;
-    use TYPO3\CMS\Core\Context\Context;
-    use TYPO3\CMS\Core\Context\Exception\AspectNotFoundException;
     use TYPO3\CMS\Core\Utility\GeneralUtility;
-    use TYPO3\CMS\Core\Database\ConnectionPool;
+    use TYPO3\CMS\Core\Utility\MailUtility;
     use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
     use Symfony\Component\Mime\Address;
     use TYPO3\CMS\Core\Mail\MailMessage;
@@ -76,10 +72,11 @@
 
 
                     $mail = GeneralUtility::makeInstance( MailMessage::class );
-                    $mail->from( new Address( $from ) );
+                    $mail->setFrom( MailUtility::getSystemFrom() );
                     $mail->to(
                         new Address( $to )
                     );
+                    $mail->setReplyTo( $from );
                     $mail->subject( $subject );
                     $mail->html( $item . "<br><br>" . $msg );;
                     $res = $mail->send();
