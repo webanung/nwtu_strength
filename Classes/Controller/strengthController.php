@@ -9,6 +9,8 @@
     use TYPO3\CMS\Core\Utility\GeneralUtility;
     use TYPO3\CMS\Core\Database\ConnectionPool;
     use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+    use Symfony\Component\Mime\Address;
+    use TYPO3\CMS\Core\Mail\MailMessage;
 
     class strengthController extends ActionController
     {
@@ -72,7 +74,16 @@
                         }
                     }
 
-                    if ( mail( $to, $subject, $item . "<br /><br />" . $msg, $header ) )
+
+                    $mail = GeneralUtility::makeInstance( MailMessage::class );
+                    $mail->from( new Address( $from ) );
+                    $mail->to(
+                        new Address( $to )
+                    );
+                    $mail->subject( $subject );
+                    $mail->html( $item . "<br><br>" . $msg );;
+                    $res = $mail->send();
+                    if ( $res )
                     {
                         $html = "<p>Vielen Dank für Ihre Stärkemeldung. Wir werden sie schnellstmöglich bearbeiten.</p>";
                     }
